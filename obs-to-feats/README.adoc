@@ -1,0 +1,7 @@
+= Observations to Feature Properties Demo
+
+This demonstration creates some simple Observations, Results, Samples and Features data, enhances it with a couple of small "build" queries and then indicates properties for Features, based on properties for which there are results from Observations.
+
+All the .sparql files in this demo are SPARQL queries files that should be run in number order, 1-..., 2-... etc. on an empty RDF Database with a SPARQL Endpoint. All the data needed is created within the queries.
+
+Each SPARQL query tells you what it does in comments at the top of the file.

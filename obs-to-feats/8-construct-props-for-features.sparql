@@ -1,0 +1,28 @@
+# Creates a sub graph result of all the properties known for all Features, obtained via the properties that
+# observations have seen, and the amount of the properties (concentration in PPM)
+
+# Generates 4 triples
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX unit: <http://qudt.org/vocab/unit/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+
+CONSTRUCT {
+    ?f sosa:hasProperty ?op .
+}
+WHERE {
+    ?f
+        a geo:Feature ;
+        sosa:hasSample/^sosa:hasFeatureOfInterest ?o ;
+    .
+
+    ?o
+        sosa:observedProperty ?op ;
+        sosa:hasResult [
+            qudt:unit ?u ;
+            rdf:value ?v ;
+        ] ;
+    .
+}

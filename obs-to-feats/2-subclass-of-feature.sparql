@@ -1,0 +1,11 @@
+# States that all Geological Features are also general Features
+
+# needs next query to be usable though - this is just the model
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX gsq: <https://linked.data.gov.au/def/gsq-su/>
+
+INSERT DATA {
+	gsq:GeologicalFeature rdfs:subClassOf geo:Feature .
+}

@@ -1,0 +1,15 @@
+# Updates all things that are subclasses of other things with that type.
+
+# So Geological Feature X becomes a generic Feature as well as staying a Geologicla Feature
+
+# This helps to link all special types of Feature to just Feature
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+INSERT {
+  ?x a ?z .
+}
+WHERE {
+  ?x a ?y .
+  ?y rdfs:subClassOf ?z .
+}

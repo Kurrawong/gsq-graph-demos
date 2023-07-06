@@ -1,0 +1,20 @@
+# Gets all the Samples of Feature ?f for which there are observations of gold
+
+# Does include subsample results by using isSampleOf+ for any number of isSampleOf links
+
+# Gets two results - ru-1 & ru-2
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+
+SELECT ?f ?op
+WHERE {
+  ?f 
+    a geo:Feature ;
+  .
+
+  ?obs 
+    sosa:hasFeatureOfInterest/sosa:isSampleOf+ ?f ;
+    sosa:observedProperty <https://linked.data.gov.au/def/observable-properties/amount-of-gold> ;
+  .
+}

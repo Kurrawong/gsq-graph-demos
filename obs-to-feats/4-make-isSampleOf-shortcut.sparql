@@ -1,0 +1,12 @@
+# Links things that have samples of them directly to the samples, even if the samples are results of subsampling other samples
+
+# this means you can query for Features' Samples directly: you don;t have to follow long chains of subsamples
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+
+INSERT {
+  ?x sosa:hasSample ?y .
+}
+WHERE {
+  ?y sosa:isSampleOf+ ?x .
+}

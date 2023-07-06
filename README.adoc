@@ -1,0 +1,22 @@
+= Graph Demos
+
+This repository contains a series of data, demo & documentation files used to create RDF graph demos for the [Geological Survey of Queensland (GSQ)].
+
+== Demos
+
+* Observations to Feature Properties
+** see obs-to-props/ folder
+
+
+== License
+
+The contents of this repository are available for use according to the 599421[Creative Commons BY 4.0 liccense], a copy of whose deed is stored in the LICENSE file.
+
+
+== Contact
+
+Author and maintainer:
+
+*KurrawongAI* +
+https://kurrawong.ai/contact +
+info@kurrawong.ai +

@@ -1,0 +1,16 @@
+# Gets all the Features for which there are observations of gold, including subsample results
+
+# uses the sosa:hasSample property we built in step 4 to get all subsample results, not path of isSampleOF following like step 6
+
+# Also gets two results - ru-1 & ru-2
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+
+SELECT ?f ?op
+WHERE {
+  ?f 
+    a geo:Feature ;
+    sosa:hasSample/^sosa:hasFeatureOfInterest/sosa:observedProperty <https://linked.data.gov.au/def/observable-properties/amount-of-gold> ;
+  .
+}

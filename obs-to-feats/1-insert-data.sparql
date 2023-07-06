@@ -1,0 +1,96 @@
+# Inserts all the data needed for the demo
+
+# Deliberately doesn't link up all of the things the later queries look for - that info will be built by subsequent queries
+
+# Data inserted matches the picture in file 1b-data-diagram.png
+
+PREFIX ex: <http://example.com/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX gsq: <https://linked.data.gov.au/def/gsq-su/>
+PREFIX obsprops: <https://linked.data.gov.au/def/observable-properties/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX unit: <http://qudt.org/vocab/unit/>
+
+INSERT DATA {
+  ex:ru-1
+    a ex:RockUnit , gsq:GeologicalFeature ;
+  .
+  ex:ru-2
+    a ex:RockUnit , gsq:GeologicalFeature ;
+  .  
+  
+  ex:sam-100122
+    a sosa:Sample ;
+    sosa:isSampleOf ex:ru-1 ;
+  .
+  
+  ex:sam-100123-b-2
+    a sosa:Sample ;
+    sosa:isSampleOf ex:sam-100123-b ;
+  .
+
+  ex:sam-100123-b
+    a sosa:Sample ;
+    sosa:isSampleOf ex:sam-100123 ;
+  .  
+  
+  ex:sam-100123
+    a sosa:Sample ;
+    sosa:isSampleOf ex:ru-2 ;
+  .
+  
+  ex:obs-1234
+    a sosa:Observation ;
+    sosa:observedProperty obsprops:amount-of-gold ;
+    sosa:hasFeatureOfInterest ex:sam-100122 ;
+    sosa:hasResult ex:res-8893 ;
+  .
+  
+  ex:obs-1235
+    a sosa:Observation ;
+    sosa:observedProperty obsprops:amount-of-copper ;
+    sosa:hasFeatureOfInterest ex:sam-100122 ;
+    sosa:hasResult ex:res-8895 ;
+  .
+  
+  ex:obs-1236
+    a sosa:Observation ;
+    sosa:observedProperty obsprops:amount-of-gold ;
+    sosa:hasFeatureOfInterest ex:sam-100123-b-2 ;
+    sosa:hasResult ex:res-8894 ;
+  .
+  
+  ex:obs-1237
+    a sosa:Observation ;
+    sosa:observedProperty obsprops:amount-of-copper ;
+    sosa:hasFeatureOfInterest ex:sam-100123-b-2 ;
+    sosa:hasResult ex:res-8896 ;
+  .  
+  
+  ex:res-8893
+    a sosa:Result ;
+    qudt:unit unit:PPM ;
+    rdf:value 0.5 ;
+  .
+  
+  ex:res-8894
+    a sosa:Result ;
+    qudt:unit unit:PPM ;
+    rdf:value 7 ;
+  .
+  
+  ex:res-8895
+    a sosa:Result ;
+    qudt:unit unit:PPM ;
+    rdf:value 1.25 ;
+  .
+  
+  ex:res-8896
+    a sosa:Result ;
+    qudt:unit unit:PPM ;
+    rdf:value 1.25 ;
+  .    
+}
